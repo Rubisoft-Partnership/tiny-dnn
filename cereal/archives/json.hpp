@@ -243,7 +243,7 @@ namespace cereal
       //! 32 bit signed long saving to current node
       template <class T, traits::EnableIf<sizeof(T) == sizeof(std::int32_t),
                                           std::is_signed<T>::value> = traits::sfinae> inline
-      void saveLong(T l){ saveValue( static_cast<std::int32_t>( l ) ); }
+      void saveLong(T l){ saveValue( static_cast<int>( l ) ); }
 
       //! non 32 bit signed long saving to current node
       template <class T, traits::EnableIf<sizeof(T) != sizeof(std::int32_t),
@@ -253,7 +253,7 @@ namespace cereal
       //! 32 bit unsigned long saving to current node
       template <class T, traits::EnableIf<sizeof(T) == sizeof(std::int32_t),
                                           std::is_unsigned<T>::value> = traits::sfinae> inline
-      void saveLong(T lu){ saveValue( static_cast<std::uint32_t>( lu ) ); }
+      void saveLong(T lu){ saveValue( static_cast<unsigned int>( lu ) ); }
 
       //! non 32 bit unsigned long saving to current node
       template <class T, traits::EnableIf<sizeof(T) != sizeof(std::int32_t),
